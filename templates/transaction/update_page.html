@@ -1,0 +1,31 @@
+{% extends 'auth/auth_base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/staff.css') }}">
+{% endblock %}
+
+{% block body %}
+
+
+<div class="transaction">
+    <h1>Transaction Update for ID: {{transaction.cust_id}}</h1>
+    <br>
+
+    <form action="" method="POST">
+        <input type="hidden" name="cust_id" value="{{transaction.cust_id}}">
+        <input type="text" name="firstname" placeholder="Firstname" value="{{transaction.cust_firstname}}"> <br>
+        <input type="text" name="lastname" placeholder="Lastname" value="{{transaction.cust_lastname}}"> <br>
+        <input type="datetime-local" name="date" placeholder="Date"> <br>
+        <input type="text" name="location" placeholder="Location"> <br>
+        <select name="prod_id">
+            {% for product in products %}
+            <option value="{{product.prod_id}}">Product: {{product.prod_id}}</option>
+            {% endfor %}
+        </select> <br>
+        <input type="submit">
+    </form>
+</div>
+
+
+
+{% endblock %}

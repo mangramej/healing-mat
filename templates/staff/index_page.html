@@ -1,0 +1,46 @@
+{% extends 'auth/auth_base.html' %}
+
+{% block head %} 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/staff.css') }}">
+{% endblock %}
+
+{% block body %} 
+
+
+<div class="staff">
+    <h1>Staff</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Email</td>
+                <td>Password</td>
+                <td colspan="2"><center>Option</center></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for staff in staffs %}
+            <tr>
+                <td>{{ staff.staff_id }}</td>
+                <td>{{ staff.staff_email }}</td>
+                <td>{{ staff.staff_password }}</td>
+                <td>
+                    <button>
+                        <a href="{{url_for('staff_bp.staff_update', id=staff.staff_id)}}"><i class="fas fa-user-edit"></i>Edit</a>
+                    </button>
+                    <button>
+                        <a href="{{url_for('staff_bp.staff_delete', id=staff.staff_id)}}"><i class="fas fa-user-slash"></i>Delete</a>
+                    </button>
+
+                </td>
+            </tr>
+            {% endfor %} 
+        </tbody>
+    </table>
+       
+</div>
+
+
+
+{% endblock %}

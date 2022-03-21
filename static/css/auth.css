@@ -1,0 +1,88 @@
+@import url("global.css");
+
+.fas {
+    padding-right: 5px;
+}
+
+
+body {
+    background: #F3F5F9;
+}
+
+.wrapper {
+    display: flex;
+    position: relative;
+}
+
+.wrapper .sidebar {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    padding: 30px 0;
+    background: rgb(54, 175, 64);
+}
+
+.wrapper .sidebar h2 {
+    color: #FFF;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.wrapper .sidebar ul li {
+    padding: 15px 25px;
+    font-size: 18px;
+    border-top: 1px solid rgba(61, 211, 74, 0.5);
+    border-bottom: 1px solid rgba(61, 211, 74, 0.05);
+}
+
+.wrapper .sidebar ul li a {
+    color: #FFF;
+    display: block;
+}
+
+.wrapper .sidebar ul li:hover {
+    background: rgb(61, 211, 74);
+    transition: 0.3s ease;
+}
+
+.wrapper .sidebar ul li:hover a{
+    color: #FFF;
+    transition: 0.3s ease;
+}
+
+.wrapper .sidebar .logout {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    background-color: #d80808;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.wrapper .sidebar .logout a {
+    color: #FFF;
+}
+
+.wrapper .sidebar .logout:hover {
+    background: #ec0808;
+    transition: 0.3s ease-in-out;
+}
+
+.wrapper .main {
+    width: 100%;
+    margin-left: 300px;
+}
+
+.wrapper .main--header {
+    padding: 20px;
+    background: #FFF;
+    color: #717171;
+}
+
+.wrapper .main--content {
+    margin: 20px;
+    color: #717171;
+}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+
+<div class="wrapper">
+    <h1>Register</h1>
+
+    <br>
+    <br>
+
+
+    <div class="content">
+        <form action="{{ url_for('auth_bp.register_page') }}" method="POST">
+            <input type="text" name="email" id="email"
+                placeholder="Email"
+                value="{{ fields['email'] if fields and fields['email'] else '' }}"  autocomplete="off">
+            <span>
+                {{ fields['emailErr'] if fields else '' }}
+            </span>
+            <input type="password" name="password" id="password" placeholder="Password">
+            <span>
+                {{ fields['passwordErr'] if fields else '' }}
+            </span>
+
+            <center>
+                <input type="submit" value="Register">
+                <br>
+                <small>
+                    <a href="{{ url_for('auth_bp.login_page') }}">
+                        Already have account? <b>Login now</b>
+                    </a>
+                </small>
+            </center>
+        </form>
+
+
+        <!-- {% for login_data in datas %}
+            <li>{{ login_data.staff_id }}. {{ login_data.email }} - {{ login_data.password }}</li>
+        {% endfor %}  -->
+    </div>
+</div>
+
+{% endblock %}
+

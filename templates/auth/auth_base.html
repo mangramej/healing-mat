@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        {% block head %} 
+        
+        {% endblock %}
+    </head>
+<body>
+
+    
+<div class="wrapper">
+
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <ul>
+            <li>
+                <a href="/dashboard">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="/transaction">
+                    <i class="fas fa-tasks"></i>
+                    Transaction
+                </a>
+            </li>
+            <li>
+                <a href="/staff">
+                    <i class="fas fa-users"></i>
+                    Staff
+                </a>
+            </li>
+        </ul>
+
+        <div class="logout">
+            <a href="/logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </a>
+        </div>
+    </div>
+    
+    
+    <div class="main">
+        <div class="main--header"> <!-- Header -->
+            <h2>Header</h2>
+        </div>
+        <div class="main--content"> <!-- Info -->
+            {% block body %} 
+    
+            {% endblock %}
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+    
+</body>
+</html>

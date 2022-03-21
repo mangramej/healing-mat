@@ -1,0 +1,28 @@
+{% extends 'auth/auth_base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/staff.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<h1>{{staff.staff_email}}</h1>
+
+{% if staff %}
+
+<form action="{{url_for('staff_bp.staff_update', id=staff.staff_id)}}" method="POST">
+    <input type="hidden" name="id" value="{{staff.staff_id}}"> <br>
+    <input type="email" name="email" value="{{staff.staff_email}}" placeholder="Email"> <br>
+    <input type="password" name="password" placeholder="New Password"> <br>
+
+    <input type="submit" value="Update">
+</form>
+
+{% else %}
+	<h1>Staff not found</h1>
+{% endif %}
+
+
+
+
+{% endblock %}

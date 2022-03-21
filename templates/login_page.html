@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+
+{% endblock %}
+
+{% block body %} 
+
+
+
+<div class="wrapper">
+
+    <image class="logo" src="{{ url_for('static', filename='images/logo-head.png') }}"></image>
+
+    <br>
+
+    <h1>welcome!</h1>
+    <p>Please login to your account by filling these form:</p>
+    <br>
+    <div class="content">
+        <form action="{{ url_for('auth_bp.login_page') }}" method="POST">
+
+            <input type="text" name="email" id="email"
+            value="{{ fields['email'] if fields and fields['email'] else '' }}" placeholder=" " autocomplete="off">
+            <label for="email">Email Address</label>
+
+            <span>
+                {{ fields['emailErr'] if fields else '' }}
+            </span>
+            <input type="password" name="password" id="password" placeholder=" ">
+            <label for="password">Password</label>
+            <span>
+                {{ fields['passwordErr'] if fields else '' }}
+            </span>
+            <br>
+            <br>
+                <input class="btn1" type="submit" value="LOGIN">
+                <a href="{{ url_for('auth_bp.register_page') }}"><input class="btn2" type="button" value="REGISTER"></a>
+        </form>
+        
+        <br>
+    
+        
+    
+    </div>
+    
+</div>
+
+{% endblock %}

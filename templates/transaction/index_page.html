@@ -1,0 +1,49 @@
+{% extends 'auth/auth_base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/staff.css') }}">
+{% endblock %}
+
+{% block body %}
+
+
+<div class="transaction">
+    <h1>Transaction</h1>
+    <br>
+    <button><a href="{{url_for('transaction_bp.transaction_create')}}"><b>Add Transaction</b></a></button>
+
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Customer</td>
+                <td>Date</td>
+                <td>Location</td>
+                <td colspan="2"><center>Option</center></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.cust_id }}</td>
+                <td>{{ transaction.cust_firstname }} {{ transaction.cust_lastname }}</td>
+                <td>{{ transaction.trans_date }}</td>
+                <td>{{ transaction.trans_location }}</td>
+                <td>
+                    <button>
+                        <a href="{{url_for('transaction_bp.transaction_update', id=transaction.cust_id)}}"><i class="fas fa-user-edit"></i>Edit</a>
+                    </button>
+                    <button>
+                        <a href="{{url_for('transaction_bp.transaction_delete', id=transaction.cust_id)}}"><i class="fas fa-user-slash"></i>Delete</a>
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+
+
+{% endblock %}

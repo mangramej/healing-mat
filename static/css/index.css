@@ -1,0 +1,107 @@
+@import url("global.css");
+
+body {
+    background: #1b3821;
+}
+
+.wrapper {
+    position: absolute;
+    border-radius: 8px;
+    background: #F3F5F9;
+    padding: 50px;
+    margin: auto;
+    width: auto;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    box-shadow: 3px 2px 2px rgba(31, 31, 31, 0.329);
+}
+
+h1{
+    font-family: 'Spartan', sans-serif;
+    background: linear-gradient(to right, #083A44, #107a5a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p{
+    font-family: 'Spartan', sans-serif;
+    color: rgb(48, 48, 48);
+}
+
+input, label{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.logo {
+    max-width: 290px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    position: relative;
+}
+
+input[type="text"],
+input[type="password"] {
+    display: block;
+    padding: 15px;
+    margin: 15px 0px 15px 0px;
+    width: 15rem;
+    background-color: #F3F5F9;
+    border: none;
+    border-left: 3px solid rgb(56, 56, 56);
+    outline: none;
+    box-shadow: 3px 2px 2px rgba(151, 151, 151, 0.397);
+    border-radius: 2px;
+    font-size: 15px;
+}
+
+label{
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+    position: absolute;
+    color: rgb(112, 112, 112);
+    font-size: 14px;
+    transform-origin: 0 0;
+    transform: translateY(-300%) translateX(15%);
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+input:focus + label, input:not(:placeholder-shown) + label{
+    transform: translateY(-380%) translateX(8%) scale(0.8);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus{
+    border-left: 3px solid green;
+}
+
+.btn1{
+    color: white;
+    background-image: linear-gradient(to right, #083A44, #107a5a);
+}
+
+a .btn2{
+    border: 1px solid rgb(70, 70, 70);
+    background-color: #F3F5F9;
+    color: rgb(70, 70, 70);
+
+}
+
+.btn1, .btn2{
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    padding: 15px 30px 15px 30px;
+}
+
