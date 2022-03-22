@@ -7,15 +7,13 @@
 {% block body %} 
 
 
-
+<div class="centerDiv">
 <div class="wrapper">
-
-    <image class="logo" src="{{ url_for('static', filename='images/logo-head.png') }}"></image>
-
-    <br>
+    <center><image class="logo" src="{{ url_for('static', filename='images/logo-head.png') }}"></image></center>
 
     <h1>welcome!</h1>
     <p>Please login to your account by filling these form:</p>
+
     <br>
     <div class="content">
         <form action="{{ url_for('auth_bp.login_page') }}" method="POST">
@@ -37,13 +35,11 @@
                 <input class="btn1" type="submit" value="LOGIN">
                 <a href="{{ url_for('auth_bp.register_page') }}"><input class="btn2" type="button" value="REGISTER"></a>
         </form>
-        
         <br>
-    
-        
-    
     </div>
-    
+
+</div>
+        <div class="bglogo"></div>
 </div>
 
 {% endblock %}
