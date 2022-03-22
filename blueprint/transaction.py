@@ -32,8 +32,10 @@ def transaction_create():
         lastname = request.form['lastname']
         date = datetime.strptime(request.form['date'], '%Y-%m-%dT%H:%M')
         location = request.form['location']
+        prod_id = request.form['prod_id']
 
         new_trans = Transaction().setFirstname(firstname).setLastname(lastname).setDate(date).setLocation(location)
+        new_trans.setProdId(prod_id)
         db_save(new_trans)
         return redirect(url_for('transaction_bp.transaction'))
 

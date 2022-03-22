@@ -1,0 +1,11 @@
+.dashboard {
+    display: flex;
+    gap: 10px 20px;
+}
+
+.item {
+    padding: 10px;
+    border: 1px solid #222;
+    text-align: center;
+    width: 200px;
+}

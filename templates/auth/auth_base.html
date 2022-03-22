@@ -47,8 +47,12 @@
     
     <div class="main">
         <div class="main--header"> <!-- Header -->
-            <h2>Header</h2>
+            {% block header %}
+
+            {% endblock %}
         </div>
+
+
         <div class="main--content"> <!-- Info -->
             {% block body %} 
     
