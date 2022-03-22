@@ -15,8 +15,10 @@ transaction_bp.before_request(transaction_bp_middleware)
 
 
 @transaction_bp.route('/transaction')
-def transaction():
-    transactions = Transaction.query.all()
+@transaction_bp.route('/transaction/<int:page>', methods=['GET'])
+def transaction(page=1):
+    per_page = 10
+    transactions = Transaction.query.paginate(page, per_page, error_out=False)
 
     return render_template('transaction/index_page.html', transactions=transactions)
 

@@ -27,7 +27,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for transaction in transactions %}
+            {% for transaction in transactions.items %}
             <tr>
                 <td>{{ transaction.cust_id }}</td>
                 <td>{{ transaction.cust_firstname }} {{ transaction.cust_lastname }}</td>
@@ -43,6 +43,25 @@
                 </td>
             </tr>
             {% endfor %}
+        <tr>
+            <td colspan="6">
+                {% if transactions.has_prev %}
+                    <a href="{{ url_for('transaction_bp.transaction', page=transactions.prev_num) }}">
+                        &lt;&lt; Prev
+                    </a>
+                {% endif %}
+
+                {% if transactions.has_prev and transactions.has_next %}
+                    |
+                {% endif %}
+
+                {% if transactions.has_next %}
+                    <a href="{{ url_for('transaction_bp.transaction', page=transactions.next_num) }}">
+                        Next &gt;&gt;
+                    </a>
+                {% endif %}
+            </td>
+        </tr>
         </tbody>
     </table>
 
