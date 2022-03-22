@@ -4,9 +4,13 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/staff.css') }}">
 {% endblock %}
 
+
+{% block header %}
+<h2>Staff Delete</h2>
+{% endblock %}
+
+
 {% block body %}
-
-
 
 {% if staff %}
 <h1>Staff: {{staff.staff_email}}</h1>

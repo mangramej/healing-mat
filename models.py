@@ -37,6 +37,7 @@ class Transaction(db.Model):
     cust_lastname = db.Column(db.Text)
     trans_date = db.Column(db.Date)
     trans_location = db.Column(db.Text)
+    prod_id = db.Column(db.Integer)
 
     def setId(self, id):
         self.cust_id = id
@@ -56,6 +57,10 @@ class Transaction(db.Model):
 
     def setLocation(self, location):
         self.trans_location = location
+        return self
+
+    def setProdId(self, id):
+        self.prod_id = id
         return self
 
 
