@@ -1,6 +1,6 @@
 from flask import Blueprint, session, render_template, redirect, url_for
 from sqlalchemy import extract
-from datetime import datetime
+from datetime import date, datetime
 
 from helper.functions import is_authenticated
 from models import Staff, Transaction, Product
@@ -26,18 +26,22 @@ def dashboard():
 
     staff_count = len(Staff.query.all())
 
-    trans_month_count = len(Transaction.query.filter(this_year, this_month).all())
-    prev_trans_month_count = len(Transaction.query.filter(this_year, this_prev_month).all())
+    trans_month_count = len(
+        Transaction.query.filter(this_year, this_month).all())
+    prev_trans_month_count = len(
+        Transaction.query.filter(this_year, this_prev_month).all())
 
     prod_trans_data = Transaction.query \
         .join(Product, Transaction.prod_id == Product.prod_id) \
         .with_entities(
-            Product.prod_total_price
+            Transaction.trans_quantity,
+            Product.prod_retail_price
         ) \
         .filter(Transaction.prod_id == Product.prod_id)
 
     prod_month_data = prod_trans_data.filter(this_year, this_month).all()
-    prod_prev_month_data = prod_trans_data.filter(this_year, this_prev_month).all()
+    prod_prev_month_data = prod_trans_data.filter(
+        this_year, this_prev_month).all()
 
     # recent_prod_trans_data = prod_trans_data.order_by(Transaction.cust_id.desc()).limit(10).all()
 
@@ -45,11 +49,12 @@ def dashboard():
         .order_by(Transaction.cust_id.desc())\
         .join(Product, Transaction.prod_id == Product.prod_id)\
         .with_entities(
-            Product.prod_total_price,
+            Product.prod_retail_price,
             Transaction.cust_firstname,
             Transaction.cust_lastname,
             Transaction.trans_location,
-            Transaction.trans_date
+            Transaction.trans_date,
+            Transaction.trans_quantity
         )\
         .filter(Transaction.prod_id == Product.prod_id)\
         .limit(10)\
@@ -57,11 +62,11 @@ def dashboard():
 
     prod_month_total_earn = 0
     for item in prod_month_data:
-        prod_month_total_earn += item[0]
+        prod_month_total_earn += item[0] * item[1]
 
     prod_prev_month_total_earn = 0
     for item in prod_prev_month_data:
-        prod_prev_month_total_earn += item[0]
+        prod_prev_month_total_earn += item[0] * item[1]
 
     data = {
         "email": email,
@@ -70,7 +75,8 @@ def dashboard():
         "prev_trans_month_count": prev_trans_month_count,
         "prod_month_total_earn": prod_month_total_earn,
         "prod_prev_month_total_earn": prod_prev_month_total_earn,
-        "recent_trans_data": recent_trans_data
+        "recent_trans_data": recent_trans_data,
+        "datetime": datetime
     }
 
     return render_template('auth/dashboard_page.html', data=data)

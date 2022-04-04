@@ -21,11 +21,17 @@
         <input type="text" name="lastname" placeholder="Lastname" value="{{transaction.cust_lastname}}"> <br>
         <input type="datetime-local" name="date" placeholder="Date"> <br>
         <input type="text" name="location" placeholder="Location"> <br>
-        <select name="prod_id">
+        <input type="text" name="quantity" placeholder="Unit/s"> <br>
+
+        {% for product in products %}
+        <input type="hidden" name="prod_id" value="{{product.prod_id}}">
+        {% endfor %}
+
+        <!-- <select name="prod_id">
             {% for product in products %}
             <option value="{{product.prod_id}}">Product: {{product.prod_id}}</option>
             {% endfor %}
-        </select> <br>
+        </select> <br> -->
         <input type="submit">
     </form>
 </div>

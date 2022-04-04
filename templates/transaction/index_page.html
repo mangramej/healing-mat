@@ -23,6 +23,7 @@
                 <td>Customer</td>
                 <td>Date</td>
                 <td>Location</td>
+                <td>Unit/s</td>
                 <td colspan="2"><center>Option</center></td>
             </tr>
         </thead>
@@ -33,6 +34,7 @@
                 <td>{{ transaction.cust_firstname }} {{ transaction.cust_lastname }}</td>
                 <td>{{ transaction.trans_date }}</td>
                 <td>{{ transaction.trans_location }}</td>
+                <td>{{ transaction.trans_quantity }}</td>
                 <td>
                     <button>
                         <a href="{{url_for('transaction_bp.transaction_update', id=transaction.cust_id)}}"><i class="fas fa-user-edit"></i>Edit</a>

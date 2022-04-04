@@ -32,6 +32,7 @@ def _migrate():
                  "cust_lastname TEXT,"
                  "trans_date DATETIME,"
                  "trans_location TEXT,"
+                 "trans_quantity INTEGER,"
                  "prod_id INTEGER,"
                  "FOREIGN KEY (prod_id) REFERENCES product(prod_id)"
                  ")")

@@ -35,9 +35,13 @@ def transaction_create():
         date = datetime.strptime(request.form['date'], '%Y-%m-%dT%H:%M')
         location = request.form['location']
         prod_id = request.form['prod_id']
+        trans_qty = request.form['quantity']
 
-        new_trans = Transaction().setFirstname(firstname).setLastname(lastname).setDate(date).setLocation(location)
+        new_trans = Transaction().setFirstname(firstname).setLastname(
+            lastname).setDate(date).setLocation(location)
         new_trans.setProdId(prod_id)
+        new_trans.setQuantity(trans_qty)
+
         db_save(new_trans)
         return redirect(url_for('transaction_bp.transaction'))
 
@@ -53,8 +57,11 @@ def transaction_update(id):
             prev_cust_id = trans.cust_id
             new_firstname = request.form['firstname']
             new_lastname = request.form['lastname']
-            new_date = datetime.strptime(request.form['date'], '%Y-%m-%dT%H:%M')
+            new_date = datetime.strptime(
+                request.form['date'], '%Y-%m-%dT%H:%M')
             new_location = request.form['location']
+            new_trans_quantity = request.form['quantity']
+            new_prod_id = request.form['prod_id']
 
             new_trans = Transaction()
             new_trans.setId(prev_cust_id)
@@ -62,6 +69,8 @@ def transaction_update(id):
             new_trans.setLastname(new_lastname)
             new_trans.setDate(new_date)
             new_trans.setLocation(new_location)
+            new_trans.setQuantity(new_trans_quantity)
+            new_trans.setProdId(new_prod_id)
             db_save(new_trans)
 
             return redirect(url_for('transaction_bp.transaction'))
@@ -71,7 +80,7 @@ def transaction_update(id):
         return render_template('transaction/update_page.html', transaction=trans, products=products)
 
 
-@transaction_bp.route('/transaction/<id>/delete', methods=['GET','POST'])
+@transaction_bp.route('/transaction/<id>/delete', methods=['GET', 'POST'])
 def transaction_delete(id):
     trans = Transaction.query.filter_by(cust_id=id).first()
     if request.method == 'POST':
