@@ -16,8 +16,8 @@
 
 <form action="{{url_for('staff_bp.staff_update', id=staff.staff_id)}}" method="POST">
     <input type="hidden" name="id" value="{{staff.staff_id}}"> <br>
-    <input type="email" name="email" value="{{staff.staff_email}}" placeholder="Email"> <br>
-    <input type="password" name="password" placeholder="New Password"> <br>
+    <input type="email" name="email" value="{{staff.staff_email}}" placeholder="Email" autocomplete="off"> <br>
+    <input type="password" name="password" placeholder="New Password" autocomplete="off"> <br>
 
     <input type="submit" value="Update">
 </form>

@@ -30,7 +30,6 @@ def login_page():
 
     if is_authenticated():
         return redirect(url_for('dashboard_bp.dashboard'))
-
     return render_template('login_page.html')
 
 

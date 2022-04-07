@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
 {% block head %}
-
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 
 {% endblock %}
 
 {% block body %}
 
-<div class="centerDiv">
+<div class="bg-img"></div>
+<div class="center-div">
 <div class="wrapper">
     <center><image class="logo" src="{{ url_for('static', filename='images/logo-head.png') }}"></image></center>
 
@@ -20,27 +21,28 @@
         <form action="{{ url_for('auth_bp.login_page') }}" method="POST">
 
             <input type="text" name="email" id="email"
-            value="{{ fields['email'] if fields and fields['email'] else '' }}" placeholder=" " autocomplete="off">
-            <label for="email">Email Address</label>
+            value="{{ fields['email'] if fields and fields['email'] else '' }}"
+                   placeholder=" " autocomplete="off">
+            <label for="email">Email Address:</label>
 
             <span>
                 {{ fields['emailErr'] if fields else '' }}
             </span>
             <input type="password" name="password" id="password" placeholder=" ">
-            <label for="password">Password</label>
+            <label for="password">Password:</label>
             <span>
                 {{ fields['passwordErr'] if fields else '' }}
             </span>
             <br>
             <br>
-                <input class="btn1" type="submit" value="LOGIN">
-                <a href="{{ url_for('auth_bp.register_page') }}"><input class="btn2" type="button" value="REGISTER"></a>
+                <input class="btn1" type="submit" value="SIGN IN">
+                <a href="{{ url_for('auth_bp.register_page') }}">
+                    <input class="btn2" type="button" value="SIGN UP"></a>
         </form>
         <br>
     </div>
-
 </div>
-        <div class="bglogo"></div>
+    <div class="bg-logo"></div>
 </div>
 
 {% endblock %}

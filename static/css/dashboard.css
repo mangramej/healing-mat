@@ -1,11 +1,63 @@
 .dashboard {
     display: flex;
-    gap: 10px 20px;
+    flex-direction: row;
+    align-content: center;
+    text-align: center;
+    gap: 10px 40px;
 }
 
 .item {
-    padding: 10px;
-    border: 1px solid #222;
-    text-align: center;
-    width: 200px;
+    overflow: hidden;
+    background: rgb(5, 64, 66);
+    margin-top: 30px;
+    padding: 15px 50px 15px 50px;
+    border-radius: 10px;
+    border-right: #ffffff solid 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
 }
+
+#logo-items{
+    font-size: 20px;
+}
+
+p{
+    margin-top: 10px;
+    text-align: justify;
+    padding: 15px;
+    border-radius: 5px;
+    border: white solid 1px;
+    border-left: white solid 8px;
+    border-right: white solid 8px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+b{
+    font-family: 'Quicksand', sans-serif;
+}
+
+h2{
+    font-family: 'Heebo', sans-serif;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+#staff-no{
+    text-align: center;
+    padding: 20px;
+    font-size: 50px;
+}
+
+#tip-1, #tip-h-1{
+    border: none;
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 300;
+    color: #031310;
+}
+
+.bi-info-circle-fill, #tip-1{
+    font-size: 18px;
+}
+
+
+
+

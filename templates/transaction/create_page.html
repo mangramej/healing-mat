@@ -16,11 +16,11 @@
     <br>
 
     <form action="" method="POST">
-        <input type="text" name="firstname" placeholder="Firstname"> <br>
-        <input type="text" name="lastname" placeholder="Lastname"> <br>
-        <input type="datetime-local" name="date" placeholder="Date"> <br>
-        <input type="text" name="location" placeholder="Location"> <br>
-        <input type="text" name="quantity" placeholder="Unit/s"> <br>
+        <input type="text" name="firstname" placeholder="Firstname" autocomplete="off"> <br>
+        <input type="text" name="lastname" placeholder="Lastname" autocomplete="off"> <br>
+        <input type="datetime-local" name="date" placeholder="Date" autocomplete="off"> <br>
+        <input type="text" name="location" placeholder="Location" autocomplete="off"> <br>
+        <input type="text" name="quantity" placeholder="Unit/s" autocomplete="off"> <br>
         {% for product in products %}
         <input type="hidden" name="prod_id" value="{{product.prod_id}}">
         {% endfor %}

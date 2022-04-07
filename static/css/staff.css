@@ -1,42 +1,50 @@
 @import url("global.css");
 
-
-table {
-    border-collapse: collapse;
-    margin: 25px 0;
+#table-1 {
     font-size: 0.9em;
     font-family: sans-serif;
-    min-width: 600px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    background: #FFF;
 }
 
-table thead tr {
-    background: rgb(54, 175, 64);
-    color: #ffffff;
-    text-align: left;
+thead{
+    border-top: dashed 2px #05251b;
+    border-radius: 20px 20px 0 0;
 }
 
-table th,
-table td {
-    padding: 12px 15px;
-    font-size: 16px;
+tbody tr:first-child td:first-child {
+    border-radius: 10px 0 0 0;
 }
 
-table tbody tr {
-    border-bottom: 1px solid #dddddd;
+tbody tr:first-child td:last-child{
+    border-radius: 0 10px 0 0;
 }
 
-
-table tbody tr:hover {
-    background: rgba(54, 175, 64, 0.8);
-
+tbody{
+    background: white;
 }
 
+tbody tr:last-child td:first-child {
+    border-radius: 0 0 0 20px;
+}
+tbody tr:last-child td:last-child {
+    border-radius: 0 0 20px 0;
+}
 
-table tbody tr:hover td{
-    color: #FFF;
+th, td{
+    color: black;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
 
+}
+th{
+    padding: 20px 0px 20px 0px;
+    font-weight: bold;
+    color: #1f1f1f;
+}
+
+td{
+    font-size: 20px;
+    padding: 20px 0px 20px 0px;
+    width: 220px;
 }
 
 button {

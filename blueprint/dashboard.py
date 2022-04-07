@@ -13,8 +13,6 @@ def dashboard():
     if not is_authenticated():
         return redirect(url_for('auth_bp.login_page'))
 
-    email = session["email"]
-
     date_now = datetime.utcnow()
     year_now = date_now.year
     month_now = date_now.month
@@ -69,7 +67,6 @@ def dashboard():
         prod_prev_month_total_earn += item[0] * item[1]
 
     data = {
-        "email": email,
         "staff_count": staff_count,
         "trans_month_count": trans_month_count,
         "prev_trans_month_count": prev_trans_month_count,

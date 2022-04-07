@@ -17,11 +17,11 @@
 
     <form action="" method="POST">
         <input type="hidden" name="cust_id" value="{{transaction.cust_id}}">
-        <input type="text" name="firstname" placeholder="Firstname" value="{{transaction.cust_firstname}}"> <br>
-        <input type="text" name="lastname" placeholder="Lastname" value="{{transaction.cust_lastname}}"> <br>
+        <input type="text" name="firstname" placeholder="Firstname" value="{{transaction.cust_firstname}}" autocomplete="off"> <br>
+        <input type="text" name="lastname" placeholder="Lastname" value="{{transaction.cust_lastname}}" autocomplete="off"> <br>
         <input type="datetime-local" name="date" placeholder="Date"> <br>
-        <input type="text" name="location" placeholder="Location"> <br>
-        <input type="text" name="quantity" placeholder="Unit/s"> <br>
+        <input type="text" name="location" placeholder="Location" autocomplete="off"> <br>
+        <input type="text" name="quantity" placeholder="Unit/s" autocomplete="off"> <br>
 
         {% for product in products %}
         <input type="hidden" name="prod_id" value="{{product.prod_id}}">

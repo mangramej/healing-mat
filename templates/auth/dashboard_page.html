@@ -6,52 +6,49 @@
 {% endblock %}
 
 {% block header %}
-<h2>Welcome {{ data['email'] }} </h2>
+
 {% endblock %}
 
 {% block body %} 
 
 
 <div class="dashboard">
-
     <div class="item">
-        <h2>Staff Count</h2> <br>
-        <h1>{{ data['staff_count'] }}</h1>
+        <p id="staff-no">{{ data['staff_count'] }}</p>
+        <h2>STAFF COUNT</h2><i id="logo-items" class="bi bi-people-fill"></i>
     </div>
 
     <div class="item">
-        <h2>Transaction</h2> <br>
-        <p>This month: <b>{{ data['trans_month_count'] }}</b></p>
-        <p>Prev month: <b>{{ data['prev_trans_month_count'] }}</b></p>
+        <p>THIS MONTH: <b>{{ data['trans_month_count'] }}</b></p>
+        <p>PREVIOUS MONTH: <b>{{ data['prev_trans_month_count'] }}</b></p>
+        <h2>TRANSACTIONS</h2><i id="logo-items" class="bi bi-cart-dash-fill"></i>
     </div>
 
     <div class="item">
-        <h2>Revenue</h2> <br>
-        <p>This month: <b>₱ {{ data['prod_month_total_earn'] }}</b></p>
-        <p>Prev month: <b>₱ {{ data['prod_prev_month_total_earn'] }}</b></p>
+        <p>MONTHLY EARNINGS: <b>₱ {{ data['prod_month_total_earn'] }}</b></p>
+        <p>LAST MONTH'S EARNINGS: <b>₱ {{ data['prod_prev_month_total_earn'] }}</b></p>
+        <h2>REVENUE</h2><i id="logo-items" class="bi bi-cash-coin"></i>
         <br>
     </div>
-
-
-
 
 </div>
     <div>
         <br>
-        <h1>Recent 10 transactions</h1>
-        <table>
+        <h2 id="tip-h-1">RECENT TRANSACTIONS:</h2>
+        <p id="tip-1"><span><i class="bi bi-info-circle-fill"></i></span>
+            &nbsp;PURCHASES MADE SUCCESSFULLY IN THE PAST 10 TRANSACTIONS.</p>
+        <table id="table-1">
         <thead>
             <tr>
-                <td>Date</td>
-                <td>Customer</td>
-                <td>Location</td>
-                <td>Unit/s</td>
-                <td>Total Price</td>
+                <th>DATE</th>
+                <th>CUSTOMER</th>
+                <th>LOCATION</th>
+                <th>UNIT/S</th>
+                <th>TOTAL</th>
             </tr>
         </thead>
-        <tbody>
+            <tbody>
             {% for item in data['recent_trans_data'] %}
-
             <tr>
                 <td>{{ (data['datetime']).strftime(item[4], "%B %d, %Y") }}</td>
                 <td>{{ item[1] }} {{ item[2] }}</td>
@@ -61,8 +58,6 @@
             </tr>
             {% endfor %}
         </tbody>
-    </table>
+        </table>
     </div>
-
-
 {% endblock %}
