@@ -6,6 +6,7 @@ from blueprint.auth import auth_bp
 from blueprint.dashboard import dashboard_bp
 from blueprint.staff import staff_bp
 from blueprint.transaction import transaction_bp
+from blueprint.help import help_bp
 
 app = Flask(__name__)
 app.secret_key = "HealingMATFinalSECRETCODE"
@@ -16,6 +17,7 @@ app.register_blueprint(auth_bp)
 app.register_blueprint(dashboard_bp)
 app.register_blueprint(staff_bp)
 app.register_blueprint(transaction_bp)
+app.register_blueprint(help_bp)
 
 db.init_app(app)
 
