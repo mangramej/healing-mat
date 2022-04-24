@@ -45,21 +45,19 @@
     </div>
 
     <div class="bg-modal">
-    <div class="modal-content">
-            {% if staff %}
-
-            <h1>Staff: {{staff.staff_email}}</h1>
-            <form action="{{url_for('staff_bp.staff_delete', id=staff.staff_id)}}" method="POST">
-            Click <input type = "submit" value="YES"> to confirm
-
-            <a href="{{url_for('transaction_bp.transaction')}}">Cancel</a>
-            </form>
-            {% else %}
-	            <h1>Staff not found</h1>
-            {% endif %}
-            <div class="close">CLOSE MUNA</div>
-     </div>
-</div>
+        <div class="modal-content">
+    
+                <h1>Are you sure you want to delete <b id="modal-title"> </b> id: <b id="modal-trans-id"></b></h1>
+    
+                <form id="delete_trans_form" method="POST">
+    
+                    Click <input type = "submit" value="YES"> to confirm
+                    <div class="close">No</div>
+    
+                </form>
+                
+         </div>
+    </div>
 
     <div class="main">
         <div class="main--header">

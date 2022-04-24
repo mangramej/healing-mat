@@ -13,7 +13,7 @@
 <div class="transaction">
     <a id="create-btn" href="{{url_for('transaction_bp.transaction_create')}}">
         <i class="bi bi-person-plus-fill"></i>&nbsp;&nbsp;&nbsp;&nbsp;CREATE TRANSACTION</a>
-    <h1 id="spec-h1">TRANSACTIONS</h1>
+    <h1 id="spec-h1">TRANSACTIONS a</h1>
     <table>
         <thead>
             <tr>
@@ -37,9 +37,7 @@
                     <a class="opt-btn" id="opt-js-btn-1" href="{{url_for('transaction_bp.transaction_update', id=transaction.cust_id)}}">
                         UPDATE&nbsp;&nbsp;<i class="bi bi-person-lines-fill"></i></a>
                     <br><br>
-                    <!--<a class="opt-btn" href="{{url_for('transaction_bp.transaction_delete', id=transaction.cust_id)}}">
-                        DELETE&nbsp;&nbsp;&nbsp;<i class="bi bi-person-x-fill"></i></a>-->
-                    <button id="opt-js-btn-2">sabado</button>
+                    <button class="opt-btn" onclick="openModal('{{ transaction.cust_id }}', 'TRANSACTION')">DELETE&nbsp;&nbsp;&nbsp;<i class="bi bi-person-x-fill"></i></button>
                 </td>
             </tr>
             {% endfor %}
@@ -65,6 +63,7 @@
     </table>
 
 </div>
+
 
 
 
