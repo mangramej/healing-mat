@@ -10,4 +10,4 @@ def help():
     if not is_authenticated():
         return redirect(url_for('auth_bp.login_page'))
 
-    return render_template('help/help1.html')
+    return render_template('help/help.html')

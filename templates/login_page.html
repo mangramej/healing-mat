@@ -8,7 +8,6 @@
 
 {% block body %}
 
-<div class="bg-img"></div>
 <div class="center-div">
 <div class="wrapper">
     <center><image class="logo" src="{{ url_for('static', filename='images/logo-head.png') }}"></image></center>
@@ -28,7 +27,7 @@
             <span>
                 {{ fields['emailErr'] if fields else '' }}
             </span>
-            <input type="password" name="password" id="password" placeholder=" ">
+            <input type="password" name="password" id="password" placeholder=" " autocomplete="off">
             <label for="password">Password:</label>
             <span>
                 {{ fields['passwordErr'] if fields else '' }}

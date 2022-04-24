@@ -1,7 +1,7 @@
 {% extends 'auth/auth_base.html' %}
 
 {% block head %} 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/staff.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/transaction.css') }}">
 {% endblock %}
 
 
@@ -11,9 +11,7 @@
 
 
 
-{% block body %} 
-
-
+{% block body %}
 <div class="staff">
     <h1>Staff</h1>
 
@@ -23,7 +21,7 @@
                 <th>ID</th>
                 <th>Email</th>
                 <th>Password</th>
-                <th colspan="2"><center>Option</center></th>
+                <th id="text-align">Options</th>
             </tr>
         </thead>
         <tbody>
@@ -31,15 +29,13 @@
             <tr>
                 <td>{{ staff.staff_id }}</td>
                 <td>{{ staff.staff_email }}</td>
-                <td>{{ staff.staff_password }}</td>
-                <td>
-                    <button>
-                        <a href="{{url_for('staff_bp.staff_update', id=staff.staff_id)}}"><i class="fas fa-user-edit"></i>Edit</a>
-                    </button>
-                    <button>
-                        <a href="{{url_for('staff_bp.staff_delete', id=staff.staff_id)}}"><i class="fas fa-user-slash"></i>Delete</a>
-                    </button>
-
+                <td id="text-align">{{ staff.staff_password }}</td>
+                <td id="text-align">
+                        <a class="opt-btn" id="opt-js-btn-1" href="{{url_for('staff_bp.staff_update', id=staff.staff_id)}}">
+                            UPDATE&nbsp;&nbsp;<i class="fas fa-user-edit"></i></a>
+                    <br><br>
+                        <a class="opt-btn" id="opt-js-btn-2" href="{{url_for('staff_bp.staff_delete', id=staff.staff_id)}}">
+                            DELETE&nbsp;&nbsp;<i class="fas fa-user-slash"></i></a>
                 </td>
             </tr>
             {% endfor %} 

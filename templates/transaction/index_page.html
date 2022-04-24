@@ -1,7 +1,7 @@
 {% extends 'auth/auth_base.html' %}
 
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/staff.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/transaction.css') }}">
 {% endblock %}
 
 {% block header %}
@@ -10,46 +10,44 @@
 
 {% block body %}
 
-
 <div class="transaction">
-    <h1>Transaction</h1>
-    <br>
-    <button><a href="{{url_for('transaction_bp.transaction_create')}}"><b>Add Transaction</b></a></button>
-
+    <a id="create-btn" href="{{url_for('transaction_bp.transaction_create')}}">
+        <i class="bi bi-person-plus-fill"></i>&nbsp;&nbsp;&nbsp;&nbsp;CREATE TRANSACTION</a>
+    <h1 id="spec-h1">TRANSACTIONS</h1>
     <table>
         <thead>
             <tr>
-                <th>ID</th>
+                <th id="col-id">ID</th>
                 <th>Customer</th>
                 <th>Date</th>
                 <th>Location</th>
                 <th>Unit/s</th>
-                <th colspan="2"><center>Option</center></th>
+                <th id="text-align">Options</th>
             </tr>
         </thead>
         <tbody>
             {% for transaction in transactions.items %}
             <tr>
-                <td>{{ transaction.cust_id }}</td>
+                <td><div class="spec-id">{{ transaction.cust_id }}</div></td>
                 <td>{{ transaction.cust_firstname }} {{ transaction.cust_lastname }}</td>
                 <td>{{ transaction.trans_date }}</td>
                 <td>{{ transaction.trans_location }}</td>
-                <td>{{ transaction.trans_quantity }}</td>
+                <td id="text-align">{{ transaction.trans_quantity }}</td>
                 <td>
-                    <button>
-                        <a href="{{url_for('transaction_bp.transaction_update', id=transaction.cust_id)}}"><i class="fas fa-user-edit"></i>Edit</a>
-                    </button>
-                    <button>
-                        <a href="{{url_for('transaction_bp.transaction_delete', id=transaction.cust_id)}}"><i class="fas fa-user-slash"></i>Delete</a>
-                    </button>
+                    <a class="opt-btn" id="opt-js-btn-1" href="{{url_for('transaction_bp.transaction_update', id=transaction.cust_id)}}">
+                        UPDATE&nbsp;&nbsp;<i class="bi bi-person-lines-fill"></i></a>
+                    <br><br>
+                    <!--<a class="opt-btn" href="{{url_for('transaction_bp.transaction_delete', id=transaction.cust_id)}}">
+                        DELETE&nbsp;&nbsp;&nbsp;<i class="bi bi-person-x-fill"></i></a>-->
+                    <button id="opt-js-btn-2">sabado</button>
                 </td>
             </tr>
             {% endfor %}
         <tr>
             <td colspan="6">
                 {% if transactions.has_prev %}
-                    <a href="{{ url_for('transaction_bp.transaction', page=transactions.prev_num) }}">
-                        &lt;&lt; Prev
+                    <a id="page-btn" href="{{ url_for('transaction_bp.transaction', page=transactions.prev_num) }}">
+                        <i class="bi bi-arrow-left-square-fill"></i>&nbsp; Prev
                     </a>
                 {% endif %}
 
@@ -58,11 +56,10 @@
                 {% endif %}
 
                 {% if transactions.has_next %}
-                    <a href="{{ url_for('transaction_bp.transaction', page=transactions.next_num) }}">
-                        Next &gt;&gt;
+                    <a id="page-btn" href="{{ url_for('transaction_bp.transaction', page=transactions.next_num) }}">
+                        Next &nbsp;<i class="bi bi-arrow-right-square-fill"></i>
                     </a>
                 {% endif %}
-            </td>
         </tr>
         </tbody>
     </table>

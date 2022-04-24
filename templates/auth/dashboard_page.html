@@ -2,7 +2,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/staff.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/transaction.css') }}">
 {% endblock %}
 
 {% block header %}
@@ -34,10 +34,10 @@
 </div>
     <div>
         <br>
-        <h2 id="tip-h-1">RECENT TRANSACTIONS:</h2>
+        <h2 id="tip-h-1">RECENT TRANSACTIONS</h2>
         <p id="tip-1"><span><i class="bi bi-info-circle-fill"></i></span>
             &nbsp;PURCHASES MADE SUCCESSFULLY IN THE PAST 10 TRANSACTIONS.</p>
-        <table id="table-1">
+        <table class="spec-tbl">
         <thead>
             <tr>
                 <th>DATE</th>
@@ -49,7 +49,7 @@
         </thead>
             <tbody>
             {% for item in data['recent_trans_data'] %}
-            <tr>
+            <tr id="tr-shadow">
                 <td>{{ (data['datetime']).strftime(item[4], "%B %d, %Y") }}</td>
                 <td>{{ item[1] }} {{ item[2] }}</td>
                 <td>{{ item[3] }}</td>

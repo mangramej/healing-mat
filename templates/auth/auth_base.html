@@ -2,8 +2,11 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="HandheldFriendly" content="true">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+        <script src="{{ url_for('static', filename='scripts/index.js') }}" defer></script>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
@@ -17,49 +20,52 @@
 <body>
 <div class="wrapper">
     <div class="sidebar">
-        <image class="logo-svg2" src="{{ url_for('static', filename='images/blur.svg') }}"></image>
-            <i class="bi bi-image"></i>
-        <span id="h1">Hello!</span><span id="h1-data"><i class="bi bi-briefcase-fill"></i>&nbsp;
-        {{ session['email'] }}</span>
-        <ul>
-            <li>
-                <a href="/dashboard">
-                    <i class="bi bi-door-open-fill"></i>
-                    DASHBOARD
-                </a>
-            </li>
-            <li>
-                <a href="/transaction">
-                    <i class="bi bi-ui-checks"></i>
-                    TRANSACTIONS
-                </a>
-            </li>
-            <li>
-                <a href="/staff">
-                    <i class="fas fa-users"></i>
-                    STAFFS
-                </a>
-            </li>
-            <li>
-                <a href="/help">
-                    <i class="bi bi-question-square-fill"></i>
-                    HELP ASSISTANCE
-                </a>
-            </li>
-        </ul>
+        <span id="h1">Hello!</span>
+        <span id="h1-data"><i class="bi bi-briefcase-fill"></i>&nbsp{{ session['email'] }}</span>
+        <div class="cont">
+                <a href="/dashboard" id="cont-sect">
+                    <i class="bi bi-clipboard2-pulse-fill" id="auth-logo"></i>
+                    <span id="auth-lbl">DASHBOARD</span></a>
+                <a href="/transaction" id="cont-sect">
+                    <i class="bi bi-ui-checks" id="auth-logo"></i>
+                        <span id="auth-lbl">TRANSACTIONS</span></a>
+                <a href="/staff" id="cont-sect">
+                    <i class="bi bi-people-fill" id="auth-logo"></i>
+                        <span id="auth-lbl">STAFFS</span></a>
+                <a href="/help" id="cont-sect">
+                    <i class="bi bi-question-square-fill" id="auth-logo"></i>
+                        <span id="auth-lbl">HELP ASSISTANCE</span></a>
         <div class="logout">
             <a href="/logout">
-                <i class="fas fa-door-open"></i>
+                <i class="bi bi-door-open-fill"></i>
                 SIGN OUT
             </a>
         </div>
+        </div>
     </div>
-    
-    
+
+    <div class="bg-modal">
+    <div class="modal-content">
+            {% if staff %}
+
+            <h1>Staff: {{staff.staff_email}}</h1>
+            <form action="{{url_for('staff_bp.staff_delete', id=staff.staff_id)}}" method="POST">
+            Click <input type = "submit" value="YES"> to confirm
+
+            <a href="{{url_for('transaction_bp.transaction')}}">Cancel</a>
+            </form>
+            {% else %}
+	            <h1>Staff not found</h1>
+            {% endif %}
+            <div class="close">CLOSE MUNA</div>
+     </div>
+</div>
+
     <div class="main">
         <div class="main--header">
             <image class="logo-svg" src="{{ url_for('static', filename='images/logo-head-web.svg') }}"></image>
             <span id="title">WEB-BASED RECORD MANAGEMENT SYSTEM</span>
+            <image class="bg-head-svg" src="{{ url_for('static', filename='images/bubbles.svg') }}"></image>
         </div>
 
 

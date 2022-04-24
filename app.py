@@ -13,6 +13,7 @@ app.secret_key = "HealingMATFinalSECRETCODE"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///hmat.db'
 app.config['SQLALCHEMY TRACK_MODIFICATIONS'] = True
 
+
 app.register_blueprint(auth_bp)
 app.register_blueprint(dashboard_bp)
 app.register_blueprint(staff_bp)

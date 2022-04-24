@@ -1,7 +1,7 @@
 {% extends 'auth/auth_base.html' %}
 
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/staff.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/transaction.css') }}">
 {% endblock %}
 
 {% block header %}
@@ -16,7 +16,6 @@
 <h1>Transaction ID: {{transaction.cust_id}}</h1>
 <form action="{{url_for('transaction_bp.transaction_delete', id=transaction.cust_id)}}" method="POST">
     Click <input type = "submit" value="YES"> to confirm
-
     <a href="{{url_for('transaction_bp.transaction')}}">Cancel</a>
 </form>
 {% else %}

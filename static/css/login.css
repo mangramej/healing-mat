@@ -3,44 +3,50 @@
 body {
     image-rendering: -webkit-optimize-contrast;
     background-image: url("/static/images/bg.jpg");
-    background-color: rgb(25, 77, 58); /* Tint color */
+    background-color: rgb(9, 56, 51); /* Tint color */
     background-blend-mode: multiply;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
     position: absolute;
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    overflow: hidden;
 }
 
 .center-div{
     display: flex;
     justify-content: center;
-
+    margin-top: 5%;
 }
 
 .wrapper {
-    margin: 7% 0px 0px 0px;
+    margin: 0 0 0 200px;
     display: inline-block;
-    border-left: solid #0a3b2e 10px;
-    border-bottom: solid #0a3b2e 1px;
+    border-left: solid #05342f 5px;
     border-top-left-radius: 30px;
-    border-bottom-left-radius: 90px;
-    border-bottom-right-radius: 190px;
+    border-bottom-left-radius: 30px;
     background: rgb(255, 255, 255);
-    padding: 50px;
+    width: 100%;
+    padding: 40px;
+    z-index: 1;
+}
+
+.bg-logo{
+    margin: 0 200px 0 0;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-image: linear-gradient(to left, rgba(255,255,255,0) 25%, rgb(255,255,255) 91%), url("/static/images/bg.jpg");
+    background-repeat: repeat-y;
+    background-size: 100%;
+    width: 100%;
     z-index: 2;
 }
 
 h1{
     font-family: 'Spartan', sans-serif;
-    background: linear-gradient(to right, #083A44, #107a5a);
+    background: #096e61;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 
 p{
     font-family: 'Spartan', sans-serif;
@@ -57,20 +63,6 @@ input, label{
     max-width: 300px;
 }
 
-.bg-logo{
-    margin: 7% 0px 0px -68px;
-    border-top: solid rgb(252, 253, 252) 2px;
-    border-top-right-radius: 90px;
-    border-bottom-right-radius: 180px;
-    border-bottom-left-radius: 30px;
-    background-image: linear-gradient(280deg, rgba(255,255,255,0) 60%, rgb(255,255,255) 81%), url("/static/images/bg.jpg");
-    background-repeat: repeat-y;
-    background-size: 100%;
-    height: 500px;
-    width: 600px;
-    z-index: 1;
-    box-shadow: 20px 20px rgba(3, 21, 16, 0.74);
-}
 
 .content{
     display: flex;
@@ -89,16 +81,16 @@ form {
 input[type="text"],
 input[type="password"] {
     display: block;
-    padding: 15px;
+    padding: 30px;
     margin: 15px 0px 15px 0px;
-    width: 15rem;
+    width: 25rem;
     background-color: #F3F5F9;
     border: none;
     border-left: 3px solid rgb(56, 56, 56);
     outline: none;
     box-shadow: 3px 2px 2px rgba(151, 151, 151, 0.397);
     border-radius: 2px;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 label{
@@ -109,15 +101,15 @@ label{
               user-select: none;
     position: absolute;
     color: rgb(2, 28, 10);
-    font-size: 14px;
+    font-size: 18px;
     transform-origin: 0 0;
-    transform: translateY(-280%) translateX(20%);
+    transform: translateY(-300%) translateX(20%);
     transition: transform 0.2s ease-in-out;
     cursor: pointer;
 }
 
 input:focus + label, input:not(:placeholder-shown) + label{
-    transform: translateY(-380%) translateX(8%) scale(0.8);
+    transform: translateY(-400%) translateX(8%) scale(0.8);
 }
 
 input[type="text"]:focus,
@@ -127,7 +119,7 @@ input[type="password"]:focus{
 
 .btn1{
     color: white;
-    background-image: linear-gradient(to right, #083A44, #107a5a);
+    background: #096e61;
 }
 
 a .btn2{
@@ -142,6 +134,8 @@ a .btn2{
     outline: none;
     border-radius: 3px;
     padding: 15px 60px 15px 60px;
+    font-size: 15px;
+    cursor: pointer;
 }
 
 

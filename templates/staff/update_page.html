@@ -1,7 +1,7 @@
 {% extends 'auth/auth_base.html' %}
 
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/staff.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/transaction.css') }}">
 {% endblock %}
 
 {% block header %}
@@ -10,7 +10,7 @@
 
 {% block body %}
 
-<h1>{{staff.staff_email}}</h1>
+<h1><i class="bi bi-arrow-clockwise">&nbsp;</i>ACCOUNT UPDATE FOR: {{staff.staff_email}}</h1>
 
 {% if staff %}
 
@@ -18,8 +18,9 @@
     <input type="hidden" name="id" value="{{staff.staff_id}}"> <br>
     <input type="email" name="email" value="{{staff.staff_email}}" placeholder="Email" autocomplete="off"> <br>
     <input type="password" name="password" placeholder="New Password" autocomplete="off"> <br>
-
-    <input type="submit" value="Update">
+    <span class="span-btn"><input type="submit" value="Update">
+            <a id="cancel-btn" href="{{url_for('transaction_bp.transaction')}}">
+               CANCEL</a></span>
 </form>
 
 {% else %}

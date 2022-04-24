@@ -1,0 +1,240 @@
+@import url("global.css");
+
+/* DASHBOARD SECTION (WALA MGA DIVISIONS UMAY GANYAN NALANG MUNA)*/
+
+.transaction{
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+table{
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+thead{
+    box-shadow: 0 5px 10px rgba(157, 156, 156, 0.2);
+}
+
+tr:nth-child(even){
+    background: rgba(5, 63, 65, 0.04);
+}
+
+tr:nth-child(odd){
+    box-shadow: 0 5px 10px rgba(157, 156, 156, 0.13);
+}
+
+th{
+    padding: 30px 50px;
+    font-size: 16px;
+    font-family: 'Epilogue', sans-serif;
+    text-transform: uppercase;
+    color: #0e2c28;
+}
+
+td{
+    padding: 20px 50px;
+    font-family: Assistant, sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #021518;
+}
+
+#tr-shadow:hover{
+    transform: scale(102%);
+    transition: 0.3s ease;
+    background-color: white;
+    font-size: 17px;
+    font-weight: bold;
+    box-shadow: 5px 20px 20px 10px rgba(157, 156, 156, 0.2);
+}
+
+.spec-id{
+    text-align: center;
+    color: white;
+    font-family: Heebo, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    background: rgb(11, 86, 84);
+    padding: 3px 25px;
+    border-radius: 20px;
+
+}
+
+#col-id{
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    font-size: 18px;
+    border-bottom-right-radius: 180px;
+    box-shadow: 4px 2px rgba(222, 222, 222, 0.94);
+    width: 10em;
+    position: absolute;
+    color: white;
+    transform: scale(110%);
+    background: rgb(11, 86, 84);
+}
+
+/* TRANSACTION SECTION (WALA MGA DIVISIONS UMAY GANYAN NALANG MUNA)*/
+
+a{
+    color: black;
+}
+
+a:hover {
+    color: white;
+}
+
+h1{
+    text-align: center;
+    font-family: 'Heebo', sans-serif;
+    font-weight: bolder;
+    color: #042b31;
+    text-transform: uppercase;
+    padding: 20px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    color: black;
+    background: white;
+    padding: 10px 120px 50px 120px;
+    margin: 0 120px 30px 120px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+input{
+    color: black;
+    padding: 30px;
+    font-family: 'Assistant', sans-serif;
+    margin-top: 15px;
+    text-transform: uppercase;
+    border: none;
+    border-bottom: 1px solid rgb(56, 56, 56);
+    outline: none;
+    font-size: 15px;
+}
+
+input[type="datetime-local"]{
+    padding: 30px;
+    border: 1px solid #042b31;
+    border-radius: 5px;
+}
+
+input[type="datetime-local"]:focus{
+    padding: 30px;
+    border: 1px solid #00805a;
+}
+
+input:focus{
+     border-bottom: 1px solid #00805a;
+}
+
+input[type="submit"] {
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    padding: 15px 60px 15px 60px;
+    color: white;
+    background: #096e61;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    width: 25rem;
+}
+
+.span-btn{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+#cancel-btn{
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    padding: 20px;
+    color: white;
+    background: #1a5656;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    width: 25rem;
+}
+
+#create-btn {
+    background: radial-gradient(ellipse at bottom, #096d60, #084341);
+    color: white;
+    margin-left: auto;
+    margin-right: -322px;
+    font-family: Heebo, sans-serif;
+    font-size: 25px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 8px;
+    padding: 20px 30px;
+    width: 40rem;
+    z-index: 2;
+    transition: margin 0.3s ease;
+}
+
+#create-btn:hover{
+    margin-right: 0;
+}
+
+#spec-h1 {
+    margin-top: -70px;
+    padding-bottom: 50px;
+}
+
+#text-align{
+    text-align: center;
+}
+
+.opt-btn{
+    color: white;
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+     border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 10px;
+    background: #096d60;
+}
+
+button:hover {
+    cursor: pointer;
+}
+#page-btn{
+    font-family: Quicksand ,sans-serif;
+    padding: 20px;
+    text-align: center;
+    margin: 0 160px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #042b31;
+    background: none;
+}
+
+.bg-modal{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+}
+
+.modal-content{
+    width: 500px;
+    height: 300px;
+    border-radius: 5px;
+    background-color: white;
+}

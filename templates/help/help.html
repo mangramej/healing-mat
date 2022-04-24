@@ -1,0 +1,60 @@
+{% extends 'auth/auth_base.html' %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <title>HELP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/help.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="wrapper-help">
+    <h1>VIEW GENERAL HEALINGMAT SYSTEM GUIDE</h1>
+    <div class="box-cont">
+        <a class="btn1-help" data-toggle="collapse" href="#help-text1">
+        <div id="link1">
+            <i class="bi bi-balloon-fill" id="help-logos"></i>
+            <p id="lbl">GETTING STARTED</p>
+    </div></a>
+        <a class="btn2-help" data-toggle="collapse" href="#help-text2">
+        <div id="link2">
+            <i class="bi bi-menu-button-fill" id="help-logos"></i>
+            <p id="lbl">BASICS</p>
+        </div></a>
+        <a class="btn3-help" data-toggle="collapse" href="#help-text3">
+        <div id="link3">
+            <i class="bi bi-pc-display" id="help-logos"></i>
+            <p id="lbl">SYSTEM REQUIREMENTS</p>
+        </div></a>
+    </div>
+    </div>
+    <div id="help-text1" class="panel-collapse collapse">
+    <h1 id="title-help1">GETTING STARTED</h1>
+    <p id="content-help1">The creation, receiving, maintenance, usage, and disposal of records are all part of the records management process. A record is content that documents a commercial transaction in this context.
+        Contracts, memoranda, paper files, electronic files, reports, emails, films, instant message logs, and database records are all examples of documentation. Physical boxes on-site or at a storage facility can be used to keep paper records.
+        Digital records can be kept on local storage media or in the cloud.</p>
+    </div>
+    <div id="help-text2" class="panel-collapse collapse">
+    <h1 id="title-help1">BASIC FUNCTIONALITY OF THE SYSTEM</h1>
+    <p id="content-help1">DASHBOARD</p>
+    <p id="content-help1">A data management platform that enables us to monitor, analyze, and visualize important
+        performance indicators, statistics, and recent transaction data from the past. It comprises staff counts, which
+        indicate the number of employees we have, transaction counts for this month compared to last month, and
+        revenue for monthly profits compared to last month's earnings.</p>
+    <br>
+    <p id="content-help1">TRANSACTION</p>
+    <p id="content-help1">Transactions including data collection, storage, retrieval, modification, and any other kind of activity that results in the storage of all previous transactions are included here.
+        A dependable, consistent, and efficient system for processing records. CRUD process is utilized to our system for creating a collection of stored procedures in SQLite is one of the most efficient approaches.
+        <br><br>
+        Using the transaction:<br>
+        Click the "Add Transaction" button to create a new record with a unique ID. Enter the customer's first name and last name, as well as a date, time and location.
+        Transaction table provide an option to edit a new record, however altering its contents will not affect the ID.
+        For removing a record, the option to permanently delete it is also shown on the transaction table.</p>
+    </div>
+    <div id="help-text3" class="panel-collapse collapse">
+    <h1 id="title-help1">SYSTEM REQUIREMENTS</h1>
+    <image class="req-svg" src="{{ url_for('static', filename='images/req.svg') }}"></image>
+    </div>
+{% endblock %}

@@ -1,7 +1,7 @@
 {% extends 'auth/auth_base.html' %}
 
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/staff.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/transaction.css') }}">
 {% endblock %}
 
 {% block header %}
@@ -12,8 +12,7 @@
 
 
 <div class="transaction">
-    <h1>Transaction Update for ID: {{transaction.cust_id}}</h1>
-    <br>
+    <h1><i class="bi bi-arrow-clockwise">&nbsp;</i>Transaction Update for ID: {{transaction.cust_id}}</h1><br>
 
     <form action="" method="POST">
         <input type="hidden" name="cust_id" value="{{transaction.cust_id}}">
@@ -21,7 +20,7 @@
         <input type="text" name="lastname" placeholder="Lastname" value="{{transaction.cust_lastname}}" autocomplete="off"> <br>
         <input type="datetime-local" name="date" placeholder="Date"> <br>
         <input type="text" name="location" placeholder="Location" autocomplete="off"> <br>
-        <input type="text" name="quantity" placeholder="Unit/s" autocomplete="off"> <br>
+        <input type="number" name="quantity" placeholder="Unit/s" autocomplete="off"> <br>
 
         {% for product in products %}
         <input type="hidden" name="prod_id" value="{{product.prod_id}}">
@@ -32,7 +31,9 @@
             <option value="{{product.prod_id}}">Product: {{product.prod_id}}</option>
             {% endfor %}
         </select> <br> -->
-        <input type="submit">
+        <span class="span-btn"><input type="submit" value="Update">
+            <a id="cancel-btn" href="{{url_for('transaction_bp.transaction')}}">
+               CANCEL</a></span>
     </form>
 </div>
 

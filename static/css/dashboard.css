@@ -1,19 +1,18 @@
 .dashboard {
     display: flex;
     flex-direction: row;
-    align-content: center;
     text-align: center;
-    gap: 10px 40px;
 }
 
 .item {
     overflow: hidden;
     background: rgb(5, 64, 66);
     margin-top: 30px;
-    padding: 15px 50px 15px 50px;
+    padding: 15px 80px 15px 80px;
     border-radius: 10px;
     border-right: #ffffff solid 15px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #logo-items{
@@ -47,17 +46,25 @@ h2{
     font-size: 50px;
 }
 
+#tip-h-1{
+    font-size: 40px;
+
+}
+
 #tip-1, #tip-h-1{
     border: none;
-    font-family: 'Epilogue', sans-serif;
-    font-weight: 300;
+    font-family: 'Heebo', sans-serif;
+    font-weight: bold;
+    text-align: center;
     color: #031310;
 }
 
 .bi-info-circle-fill, #tip-1{
-    font-size: 18px;
 }
 
-
+.spec-tbl{
+    margin: 0 auto 30px auto;
+    width: 80em;
+}
 
 

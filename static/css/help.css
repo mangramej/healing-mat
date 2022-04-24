@@ -1,0 +1,79 @@
+@import url("global.css");
+
+
+.wrapper-help {
+    display: flex;
+    margin-top: 50px;
+    padding: 50px;
+    width: 1200px;
+    background: #083A44;
+    border-radius: 20px;
+    font-family: 'Heebo', sans-serif;
+    color: white;
+}
+
+.box-cont{
+    display: flex;
+    flex-direction: row;
+    border: white solid 2px;
+    border-right:white solid 20px;
+    border-radius: 10px;
+}
+
+#link1, #link2, #link3{
+    margin: 30px;
+    height: 200px;
+    width: 200px;
+    padding: 20px 0;
+    background: white;
+    text-align: center;
+    color: #083A44;
+    border-radius: 10px;
+}
+
+#help-logos{
+    font-size: 100px;
+}
+
+#lbl{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 12px;
+}
+
+#link1:hover, #link2:hover, #link3:hover{
+    color: white;
+    background: #083a43;
+    transition: 0.5s ease;
+    border: 2px solid white;
+    border-right: 5px solid white;
+    border-left: 5px solid white;
+    transform: scale(1.1);
+}
+
+.panel-collapse{
+    padding: 100px;
+    margin: 20px 0 50px 0;
+    border-radius: 20px;
+    background: white;
+    width: 1200px;
+    color: #05292c;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+
+#title-help1{
+    font-family: 'Heebo', sans-serif;
+    font-size: 50px;
+}
+
+#content-help1{
+    font-family: 'Assistant', sans-serif;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.req-svg{
+    height: 350px;
+    width: auto;
+}
