@@ -46,16 +46,12 @@
 
     <div class="bg-modal">
         <div class="modal-content">
-    
-                <h1>Are you sure you want to delete <b id="modal-title"> </b> id: <b id="modal-trans-id"></b></h1>
-    
-                <form id="delete_trans_form" method="POST">
-    
-                    Click <input type = "submit" value="YES"> to confirm
-                    <div class="close">No</div>
-    
-                </form>
-                
+                <h1>Are you sure you want to delete
+                    <b id="modal-title"> </b> ID: <b id="modal-trans-id"></b></h1>
+                    <form id="delete_trans_form" method="POST">
+                        <input class="yes-btn" type="submit" value="YES">
+                        <input id="cancel-btn" type="button" value="CANCEL">
+                    </form>
          </div>
     </div>
 
@@ -73,7 +69,6 @@
             {% endblock %}
         </div>
     </div>
-
 </div>
 </body>
 </html>

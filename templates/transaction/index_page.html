@@ -12,8 +12,8 @@
 
 <div class="transaction">
     <a id="create-btn" href="{{url_for('transaction_bp.transaction_create')}}">
-        <i class="bi bi-person-plus-fill"></i>&nbsp;&nbsp;&nbsp;&nbsp;CREATE TRANSACTION</a>
-    <h1 id="spec-h1">TRANSACTIONS a</h1>
+        <i class="bi bi-clipboard-plus-fill"></i>&nbsp;&nbsp;&nbsp;&nbsp;CREATE TRANSACTION</a>
+    <h1 id="spec-h1">TRANSACTIONS</h1>
     <table>
         <thead>
             <tr>
@@ -35,9 +35,10 @@
                 <td id="text-align">{{ transaction.trans_quantity }}</td>
                 <td>
                     <a class="opt-btn" id="opt-js-btn-1" href="{{url_for('transaction_bp.transaction_update', id=transaction.cust_id)}}">
-                        UPDATE&nbsp;&nbsp;<i class="bi bi-person-lines-fill"></i></a>
+                        UPDATE&nbsp;&nbsp;<i class="bi bi-journal-medical"></i></a>
                     <br><br>
-                    <button class="opt-btn" onclick="openModal('{{ transaction.cust_id }}', 'TRANSACTION')">DELETE&nbsp;&nbsp;&nbsp;<i class="bi bi-person-x-fill"></i></button>
+                    <button class="opt-btn" onclick="openModal('{{ transaction.cust_id }}', 'TRANSACTION')">
+                        DELETE&nbsp;&nbsp;&nbsp;<i class="bi bi-journal-x"></i></button>
                 </td>
             </tr>
             {% endfor %}

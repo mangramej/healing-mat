@@ -32,9 +32,10 @@
                 <td id="text-align">{{ staff.staff_password }}</td>
                 <td id="text-align">
                         <a class="opt-btn" id="opt-js-btn-1" href="{{url_for('staff_bp.staff_update', id=staff.staff_id)}}">
-                            UPDATE&nbsp;&nbsp;<i class="fas fa-user-edit"></i></a>
+                            UPDATE&nbsp;&nbsp;<i class="bi bi-person-lines-fill"></i></a>
                     <br><br>
-                        <button class="opt-btn" onclick="openModal('{{ staff.staff_id }}', 'STAFF')">DELETE&nbsp;&nbsp;&nbsp;<i class="bi bi-person-x-fill"></i></button>
+                        <button class="opt-btn" onclick="openModal('{{ staff.staff_id }}', 'STAFF')">
+                            DELETE&nbsp;&nbsp;&nbsp;<i class="bi bi-person-x-fill"></i></button>
                 </td>
             </tr>
             {% endfor %} 

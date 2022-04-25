@@ -1,10 +1,10 @@
 
-document.querySelector('.close').addEventListener('click', function(){
+document.querySelector('#cancel-btn').addEventListener('click', function(){
     document.querySelector('.bg-modal').style.display = 'none';
 });
 
 function openModal(id, title) {
-    document.querySelector('.bg-modal').style.display = 'block';
+    document.querySelector('.bg-modal').style.display = 'flex';
     document.getElementById('modal-trans-id').innerText = id;
     document.getElementById('modal-title').innerText = title;
 
