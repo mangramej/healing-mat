@@ -51,7 +51,16 @@ def transaction_update(id):
 
     if request.method == 'POST':
         if trans:
-            db_delete(trans)
+            if (
+                not request.form['firstname'] or 
+                not request.form['lastname'] or
+                not request.form['date'] or 
+                not request.form['location'] or 
+                not request.form['quantity'] or 
+                not request.form['prod_id'] or
+                not (request.form['quantity']).isnumeric()):
+                return redirect(request.url);
+
 
             prev_cust_id = trans.cust_id
             new_firstname = request.form['firstname']
@@ -61,6 +70,8 @@ def transaction_update(id):
             new_location = request.form['location']
             new_trans_quantity = request.form['quantity']
             new_prod_id = request.form['prod_id']
+
+            db_delete(trans)
 
             new_trans = Transaction()
             new_trans.setId(prev_cust_id)

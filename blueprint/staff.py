@@ -23,6 +23,11 @@ def staff_update(id):
     staff = Staff.query.filter_by(staff_id=id).first()
     if request.method == 'POST':
         if staff:
+
+            if(not request.form['email'] or not request.form['password']):
+                return redirect(request.url)
+
+
             db_delete(staff)
 
             prev_id = staff.staff_id

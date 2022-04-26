@@ -20,7 +20,7 @@
             <tr>
                 <th>ID</th>
                 <th>Email</th>
-                <th>Password</th>
+                <!-- <th>Password</th> -->
                 <th id="text-align">Options</th>
             </tr>
         </thead>
@@ -29,7 +29,7 @@
             <tr>
                 <td>{{ staff.staff_id }}</td>
                 <td>{{ staff.staff_email }}</td>
-                <td id="text-align">{{ staff.staff_password }}</td>
+                <!-- <td id="text-align">{{ staff.staff_password }}</td> -->
                 <td id="text-align">
                         <a class="opt-btn" id="opt-js-btn-1" href="{{url_for('staff_bp.staff_update', id=staff.staff_id)}}">
                             UPDATE&nbsp;&nbsp;<i class="bi bi-person-lines-fill"></i></a>
