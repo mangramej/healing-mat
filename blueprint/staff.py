@@ -12,6 +12,7 @@ def staff_bp_middleware():
 
 staff_bp.before_request(staff_bp_middleware)
 
+
 @staff_bp.route('/staff')
 def staff():
     return render_template('staff/index_page.html', staffs=Staff.query.all())

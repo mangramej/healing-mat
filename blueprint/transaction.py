@@ -86,6 +86,5 @@ def transaction_delete(id):
         if trans:
             db_delete(trans)
             return redirect(url_for('transaction_bp.transaction'))
-
     else:
         return render_template('transaction/delete_page.html', transaction=trans)

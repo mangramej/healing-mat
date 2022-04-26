@@ -26,11 +26,11 @@
             </tr>
         </thead>
         <tbody>
-            {% for transaction in transactions.items %}
+            {% for transaction in transactions.items|sort(attribute='cust_id', reverse = True) %}
             <tr>
                 <td><div class="spec-id">{{ transaction.cust_id }}</div></td>
                 <td>{{ transaction.cust_firstname }} {{ transaction.cust_lastname }}</td>
-                <td>{{ transaction.trans_date }}</td>
+                <td>{{ transaction.trans_date.strftime("%B %d, %Y") }}</td>
                 <td>{{ transaction.trans_location }}</td>
                 <td id="text-align">{{ transaction.trans_quantity }}</td>
                 <td>
