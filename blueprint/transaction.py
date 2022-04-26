@@ -29,6 +29,17 @@ def transaction_create():
         return render_template('transaction/create_page.html', products=products)
 
     if request.method == 'POST':
+
+        if (
+                not request.form['firstname'] or 
+                not request.form['lastname'] or
+                not request.form['date'] or 
+                not request.form['location'] or 
+                not request.form['quantity'] or 
+                not request.form['prod_id'] or
+                not (request.form['quantity']).isnumeric()):
+                return redirect(request.url);
+                
         firstname = request.form['firstname']
         lastname = request.form['lastname']
         date = datetime.strptime(request.form['date'], '%Y-%m-%dT%H:%M')
