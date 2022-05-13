@@ -14,6 +14,11 @@
     <a id="create-btn" href="{{url_for('transaction_bp.transaction_create')}}">
         <i class="bi bi-clipboard-plus-fill"></i>&nbsp;&nbsp;&nbsp;&nbsp;CREATE TRANSACTION</a>
     <h1 id="spec-h1">TRANSACTIONS</h1>
+    <form action="" method="POST" autocomplete="off">
+    <div><h1>SEARCH TRANSACTION:</h1>
+    <input type="text" name="pin" placeholder="Search keyword">
+    <input type="submit" value="search" name=""></div>
+    </form>
     <table>
         <thead>
             <tr>
@@ -62,10 +67,7 @@
         </tr>
         </tbody>
     </table>
-
 </div>
-
-
 
 
 {% endblock %}

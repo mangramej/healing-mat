@@ -14,11 +14,16 @@ def transaction_bp_middleware():
 transaction_bp.before_request(transaction_bp_middleware)
 
 
-@transaction_bp.route('/transaction')
-@transaction_bp.route('/transaction/<int:page>', methods=['GET'])
+@transaction_bp.route('/transaction', methods=['GET', 'POST'])
+@transaction_bp.route('/transaction/<int:page>', methods=['GET', 'POST'])
 def transaction(page=1):
     per_page = 11
     transactions = Transaction.query.paginate(page, per_page, error_out=False)
+    if request.method == 'POST' and 'pin' in request.form:
+        pin = request.form["pin"]
+        search = "%{}%".format(pin)
+        transactions = Transaction.query.filter(Transaction.cust_lastname.like(search)).paginate(page, per_page, error_out=False)
+        return render_template('transaction/index_page.html', transactions=transactions, pin=pin)
     return render_template('transaction/index_page.html', transactions=transactions)
 
 
@@ -70,7 +75,7 @@ def transaction_update(id):
                 not request.form['quantity'] or 
                 not request.form['prod_id'] or
                 not (request.form['quantity']).isnumeric()):
-                return redirect(request.url);
+                return redirect(request.url)
 
 
             prev_cust_id = trans.cust_id
