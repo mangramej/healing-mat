@@ -33,6 +33,7 @@ def _migrate():
                  "trans_date DATETIME,"
                  "trans_location TEXT,"
                  "trans_quantity INTEGER,"
+                 "trans_discount FLOAT,"
                  "prod_id INTEGER,"
                  "FOREIGN KEY (prod_id) REFERENCES product(prod_id)"
                  ")")

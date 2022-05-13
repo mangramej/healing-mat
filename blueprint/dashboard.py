@@ -52,7 +52,8 @@ def dashboard():
             Transaction.cust_lastname,
             Transaction.trans_location,
             Transaction.trans_date,
-            Transaction.trans_quantity
+            Transaction.trans_quantity,
+            Transaction.trans_discount
         )\
         .filter(Transaction.prod_id == Product.prod_id)\
         .limit(10)\

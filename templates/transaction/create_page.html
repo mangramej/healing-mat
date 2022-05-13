@@ -16,7 +16,7 @@
     <form action="" method="POST">
         <input type="text" name="firstname" placeholder="Firstname" autocomplete="off"> <br>
         <input type="text" name="lastname" placeholder="Lastname" autocomplete="off"> <br>
-        <input type="datetime-local" name="date" placeholder="Date" autocomplete="off"> <br>
+        <input type="date" name="date" placeholder="Date" autocomplete="off"> <br>
         <input type="text" name="location" placeholder="Location" autocomplete="off"> <br>
         <input type="text" name="quantity" placeholder="Unit/s" autocomplete="off"> <br>
         {% for product in products %}
@@ -27,6 +27,18 @@
             <option value="{{product.prod_id}}">Product: {{product.prod_id}}</option>
             {% endfor %}
         </select> <br> -->
+
+        <select name="discount">
+            <option value="0">No Discount (3500)</option>
+            <option value="1000">1000 (Discount) = 2500 (Price)</option>
+            <option value="1100">1100 (Discount) = 2400 (Price)</option>
+            <option value="1200">1200 (Discount) = 2300 (Price)</option>
+            <option value="1300">1300 (Discount) = 2200 (Price)</option>
+            <option value="1400">1400 (Discount) = 2100 (Price)</option>
+            <option value="1500">1500 (Discount) = 2000 (Price)</option>
+            <option value="1700">1700 (Discount) = 1800 (Price)</option>
+        </select>
+
         <span class="span-btn"><input type="submit" value="Create">
             <a id="cancel-btn" href="{{url_for('transaction_bp.transaction')}}">
                CANCEL</a></span>

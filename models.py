@@ -39,6 +39,7 @@ class Transaction(db.Model):
     trans_location = db.Column(db.Text)
     prod_id = db.Column(db.Integer)
     trans_quantity = db.Column(db.Integer)
+    trans_discount = db.Column(db.Float)
 
     def setId(self, id):
         self.cust_id = id
@@ -66,6 +67,10 @@ class Transaction(db.Model):
 
     def setQuantity(self, quantity):
         self.trans_quantity = quantity
+        return self
+
+    def setDiscount(self, discount):
+        self.trans_discount = discount
         return self
 
 

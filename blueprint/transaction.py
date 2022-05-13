@@ -2,6 +2,7 @@ from flask import Blueprint, session, render_template, redirect, url_for, reques
 from helper.functions import is_authenticated
 from models import Transaction, Product, db_save, db_delete
 from datetime import datetime
+from sqlalchemy import or_
 
 transaction_bp = Blueprint('transaction_bp', __name__)
 
@@ -14,17 +15,37 @@ def transaction_bp_middleware():
 transaction_bp.before_request(transaction_bp_middleware)
 
 
-@transaction_bp.route('/transaction', methods=['GET', 'POST'])
-@transaction_bp.route('/transaction/<int:page>', methods=['GET', 'POST'])
+@transaction_bp.route('/transaction', methods=['GET','POST'])
+@transaction_bp.route('/transaction/<int:page>', methods=['GET'])
 def transaction(page=1):
     per_page = 11
-    transactions = Transaction.query.paginate(page, per_page, error_out=False)
-    if request.method == 'POST' and 'pin' in request.form:
-        pin = request.form["pin"]
-        search = "%{}%".format(pin)
-        transactions = Transaction.query.filter(Transaction.cust_lastname.like(search)).paginate(page, per_page, error_out=False)
-        return render_template('transaction/index_page.html', transactions=transactions, pin=pin)
+
+    if request.method == 'POST':
+        search = request.form['search_text']
+        search = "%{}%".format(search)
+
+        if(request.form['search_type'] == 'name'):
+            transactions = Transaction.query.filter(or_(Transaction.cust_firstname.like(search), Transaction.cust_lastname.like(search))).paginate(page, per_page, error_out=False)
+
+
+        if request.form['search_type'] == 'location':
+            transactions = Transaction.query.filter(Transaction.trans_location.like(search)).paginate(page, per_page, error_out=False)
+
+
+    if request.method == 'GET':
+        transactions = Transaction.query.paginate(page, per_page, error_out=False)
+
     return render_template('transaction/index_page.html', transactions=transactions)
+
+
+
+@transaction_bp.route('/transaction/show', methods=['POST'])
+def transaction_show():
+    # trans = Transaction.query.filter_by(cust_id=id).first()
+
+
+
+    return request.form['search_text']
 
 
 @transaction_bp.route('/transaction/create', methods=['GET', 'POST'])
@@ -41,21 +62,24 @@ def transaction_create():
                 not request.form['date'] or 
                 not request.form['location'] or 
                 not request.form['quantity'] or 
+                not request.form['discount'] or 
                 not request.form['prod_id'] or
                 not (request.form['quantity']).isnumeric()):
                 return redirect(request.url);
                 
         firstname = request.form['firstname']
         lastname = request.form['lastname']
-        date = datetime.strptime(request.form['date'], '%Y-%m-%dT%H:%M')
+        date = datetime.strptime(request.form['date'], '%Y-%m-%d')
         location = request.form['location']
         prod_id = request.form['prod_id']
         trans_qty = request.form['quantity']
+        trans_discount = request.form['discount']
 
         new_trans = Transaction().setFirstname(firstname).setLastname(
             lastname).setDate(date).setLocation(location)
         new_trans.setProdId(prod_id)
         new_trans.setQuantity(trans_qty)
+        new_trans.setDiscount(trans_discount)
 
         db_save(new_trans)
         return redirect(url_for('transaction_bp.transaction'))
@@ -73,6 +97,7 @@ def transaction_update(id):
                 not request.form['date'] or 
                 not request.form['location'] or 
                 not request.form['quantity'] or 
+                not request.form['discount'] or 
                 not request.form['prod_id'] or
                 not (request.form['quantity']).isnumeric()):
                 return redirect(request.url)
@@ -82,10 +107,11 @@ def transaction_update(id):
             new_firstname = request.form['firstname']
             new_lastname = request.form['lastname']
             new_date = datetime.strptime(
-                request.form['date'], '%Y-%m-%dT%H:%M')
+                request.form['date'], '%Y-%m-%d')
             new_location = request.form['location']
             new_trans_quantity = request.form['quantity']
             new_prod_id = request.form['prod_id']
+            new_discount = request.form['discount']
 
             db_delete(trans)
 
@@ -97,6 +123,7 @@ def transaction_update(id):
             new_trans.setLocation(new_location)
             new_trans.setQuantity(new_trans_quantity)
             new_trans.setProdId(new_prod_id)
+            new_trans.setDiscount(new_discount)
             db_save(new_trans)
 
             return redirect(url_for('transaction_bp.transaction'))

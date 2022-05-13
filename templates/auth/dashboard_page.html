@@ -45,6 +45,8 @@
                 <th>LOCATION</th>
                 <th>UNIT/S</th>
                 <th>TOTAL</th>
+                <th>Discount</th>
+                <th>Final</th>
             </tr>
         </thead>
             <tbody>
@@ -55,6 +57,8 @@
                 <td>{{ item[3] }}</td>
                 <td>{{ item[5] }}</td>
                 <td>{{ item[0] * item[5] }}</td>
+                <td>{{ item[6] * item[5] }}</td>
+                <td>{{ (item[0] * item[5]) - (item[6] * item[5]) }}</td>
             </tr>
             {% endfor %}
         </tbody>
