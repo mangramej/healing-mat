@@ -48,9 +48,9 @@ body {
 }
 
 #cont-sect{
-    color: inherit; !important;
+    color: inherit !important;
     text-decoration: none !important;
-    outline: none; !important;
+    outline: none !important;
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -86,7 +86,7 @@ body {
     font-weight: 200;
     background: #096e61;
     text-decoration: none !important;
-    outline: none; !important;
+    outline: none !important;
 }
 
 .logout a:hover{
@@ -186,7 +186,7 @@ body {
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
-    background: none; !important;
+    background: none !important;
 }
 
 #modal-title, #modal-trans-id{

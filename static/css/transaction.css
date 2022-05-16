@@ -8,6 +8,97 @@
     z-index: 1;
 }
 
+.search-cont{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: transparent;
+    align-items: center;
+    margin-right: auto;
+    gap: 40px;
+    padding: 5px;
+    top: 35px;
+    right: 20px;
+}
+
+.select{
+    padding: 5px 20px;
+    margin-top: -30px;
+    width: 230px;
+    background: white;
+    color: #015239;
+    font-family: 'Quicksand', sans-serif;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+select{
+    padding: 20px 20px;
+    background: #015245;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.select:focus, .select:hover{
+    transform: scale(105%);
+    transition: 0.3s ease;
+}
+
+.bi-search{
+    position: absolute;
+    font-size: 60px;
+    color: white;
+    right: 225px;
+}
+
+.search-field{
+    color: white;
+    background: none;
+    border: 4px solid white;
+    height: 15px;
+    width: 250px;
+    border-radius: 90px;
+}
+
+.search-field::placeholder { 
+    color: white;
+    opacity: 1;
+}
+
+.search-field:focus, .search-field:hover{
+    border-bottom: 4px solid white;
+}
+
+.no-result-cont{
+    text-align: center;
+}
+
+.no-result-text1{
+    margin-top: -10px;
+    font-size: 20px;
+}
+
+.no-result-text2{
+    margin-top: -35px;
+    font-size: 10px;
+}
+
+.no-result-bg{
+    height: 200px;
+    margin: 20px 0;
+}
+
 table{
     border-collapse: collapse;
     background: white;
@@ -41,6 +132,7 @@ td{
     padding: 20px 50px;
     font-family: Assistant, sans-serif;
     font-size: 15px;
+    white-space: nowrap;
     text-transform: uppercase;
     color: #021518;
 }
@@ -188,7 +280,7 @@ input[type="submit"] {
 
 #spec-h1 {
     margin-top: -70px;
-    padding-bottom: 50px;
+    padding-bottom: 40px;
 }
 
 #text-align{
@@ -209,6 +301,7 @@ input[type="submit"] {
 button:hover {
     cursor: pointer;
 }
+
 #page-btn{
     font-family: Quicksand ,sans-serif;
     padding: 20px;

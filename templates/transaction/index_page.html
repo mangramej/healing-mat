@@ -20,17 +20,13 @@
     <h1 id="spec-h1">TRANSACTIONS</h1>
 
 
-    <form action="{{ url_for('transaction_bp.transaction') }}" method="POST" autocomplete="off">
-        <div>
-            <select name="search_type">
-                <option value="name">Name</option>
-                <option value="location">Location</option>
+    <form class="search-cont" action="{{ url_for('transaction_bp.transaction') }}" method="POST" autocomplete="off">
+            <i class="bi bi-search"></i>
+            <input class="search-field" type="text" name="search_text">
+            <select class="select" name="search_type">
+                <option value="name">NAME</option>
+                <option value="location">LOCATION</option>
             </select>
-            <h1>SEARCH TRANSACTION:</h1>
-            <input type="text" name="search_text" placeholder="Search keyword">
-            <input type="submit" value="search">
-    
-        </div>
     </form>
 
     
@@ -42,7 +38,7 @@
                 <th>Date</th>
                 <th>Location</th>
                 <th>Unit/s</th>
-                <th>Discount</th>
+                <th>Added Discount</th>
                 <th id="text-align">Options</th>
             </tr>
         </thead>
@@ -50,7 +46,10 @@
 
             {% if transactions.items|length == 0 %}
                 <tr>
-                    <td colspan="7" style="color:red">No result found.</td>
+                    <td class="no-result-cont" colspan="7">
+                        <image class="no-result-bg" src="{{ url_for('static', filename='images/thinking.png') }}"></image>
+                        <h1 class="no-result-text1">Customer not found</h1>
+                        <h1 class="no-result-text2">There are no customer that match your current filters.</h1></td>
                 </tr>
             {% else %}
 
@@ -62,7 +61,7 @@
                     <td>{{ transaction.trans_date.strftime("%B %d, %Y") }}</td>
                     <td>{{ transaction.trans_location }}</td>
                     <td id="text-align">{{ transaction.trans_quantity }}</td>
-                    <td>{{ transaction.trans_discount }}</td>
+                    <td id="text-align">{{ transaction.trans_discount }}</td>
                     <td>
                         <a class="opt-btn" id="opt-js-btn-1" href="{{url_for('transaction_bp.transaction_update', id=transaction.cust_id)}}">
                             UPDATE&nbsp;&nbsp;<i class="bi bi-journal-medical"></i></a>
