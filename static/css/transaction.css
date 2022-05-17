@@ -23,14 +23,14 @@
 }
 
 .select{
-    padding: 5px 20px;
+    padding: 10px 20px;
     margin-top: -30px;
     width: 230px;
     background: white;
     color: #015239;
     font-family: 'Quicksand', sans-serif;
     border: none;
-    border-radius: 3px;
+    border-radius: 120px;
     outline: none;
     cursor: pointer;
     font-size: 15px;
@@ -41,7 +41,7 @@ select{
     padding: 20px 20px;
     background: #015245;
     border-radius: 5px;
-    color: white;
+    color: transparent;
     font-family: 'Quicksand', sans-serif;
     border: none;
     outline: none;
@@ -51,16 +51,21 @@ select{
 }
 
 .select:focus, .select:hover{
-    transform: scale(105%);
-    transition: 0.3s ease;
+    transform: scale(110%);
+    transition: 0.5s ease;
 }
 
 .bi-search{
     position: absolute;
-    font-size: 50px;
-    color: white;
-    margin-top: 10px;
-    right: 225px;
+    padding: 10px 20px;
+    border-bottom-left-radius: 120px;
+    border-top-right-radius: 90px;
+    border-bottom-right-radius: 90px;
+    background: white;
+    font-size: 30px;
+    color: rgb(20, 158, 124);
+    margin-top: 18px;
+    left: 185px;
 }
 
 .search-field{
