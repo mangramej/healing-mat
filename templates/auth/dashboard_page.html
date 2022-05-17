@@ -33,11 +33,9 @@
 
 </div>
 
-<br>
-<div style="width: 50%;">
+<br><br><br>
+<div class="chart-cont">
 
-
-    <hr>
     <h1>Income Chart</h1>
 
     <canvas id="annualChart"></canvas>
@@ -115,8 +113,8 @@ const labels = [
   const this_year_data = {{ data['this_year_chart_data']['month'] | tojson }};
   const last_year_data = {{ data['last_year_chart_data']['month'] | tojson }};
 
-  this_year_data.forEach(e => {
-    this_year_months.push(labels[parseInt(e) - 1])
+  last_year_data.forEach(e => {
+    last_year_months.push(labels[parseInt(e) - 1])
   });
 
   const this_year_total_data = {{ data['this_year_chart_data']['final_total'] | tojson }};
@@ -125,19 +123,21 @@ const labels = [
   console.log(last_year_total_data)
 
   const chart_data = {
-    labels: this_year_months,
+    labels: last_year_months,
     datasets: [
         {
             label: this_year,
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: 'rgba(37, 198, 219, 0.2)',
+            borderColor: 'rgb(23, 136, 156)',
+            fill: true,
             tension: 0.2,
             data: this_year_total_data,
         },
         {
             label: last_year,
-            backgroundColor: 'rgb(51, 153, 255)',
-            borderColor: 'rgb(51, 153, 255)',
+            backgroundColor: 'rgba(37, 219, 195, 0.2)',
+            borderColor: 'rgb(11, 86, 84)',
+            fill: true,
             tension: 0.2,
             data: last_year_total_data,
         }

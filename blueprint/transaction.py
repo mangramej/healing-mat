@@ -42,9 +42,6 @@ def transaction(page=1):
 @transaction_bp.route('/transaction/show', methods=['POST'])
 def transaction_show():
     # trans = Transaction.query.filter_by(cust_id=id).first()
-
-
-
     return request.form['search_text']
 
 
