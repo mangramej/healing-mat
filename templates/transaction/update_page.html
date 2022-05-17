@@ -1,11 +1,16 @@
 {% extends 'auth/auth_base.html' %}
 
 {% block head %}
-<title>HEALINGMAT</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/transaction.css') }}">
 {% endblock %}
 
+{% block header %}
+<h2>Transaction Update</h2>
+{% endblock %}
+
 {% block body %}
+
+
 <div class="transaction">
     <h1><i class="bi bi-arrow-clockwise">&nbsp;</i>Transaction Update for ID: {{transaction.cust_id}}</h1><br>
 

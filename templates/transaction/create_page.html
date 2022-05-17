@@ -1,11 +1,16 @@
 {% extends 'auth/auth_base.html' %}
 
 {% block head %}
-<title>HEALINGMAT</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/transaction.css') }}">
 {% endblock %}
 
+{% block header %}
+<h2>Transaction Create</h2>
+{% endblock %}
+
 {% block body %}
+
+
 <div class="transaction">
     <h1>CREATING TRANSACTION</h1><br>
     <form action="" method="POST">
