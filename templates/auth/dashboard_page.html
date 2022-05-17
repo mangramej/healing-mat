@@ -32,6 +32,20 @@
     </div>
 
 </div>
+
+<br>
+<div style="width: 50%;">
+
+
+    <hr>
+    <h1>Income Chart</h1>
+
+    <canvas id="annualChart"></canvas>
+</div>
+<br>
+    
+
+
     <div>
         <br>
         <h2 id="tip-h-1">RECENT TRANSACTIONS</h2>
@@ -64,4 +78,82 @@
         </tbody>
         </table>
     </div>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+{% block script %}
+<script>
+const labels = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
+  let this_year_months = []
+  let last_year_months = []
+
+  const this_year = {{ data['this_year_chart_data']['year'] | tojson }};
+  const last_year = {{ data['last_year_chart_data']['year'] | tojson }};
+
+  const this_year_data = {{ data['this_year_chart_data']['month'] | tojson }};
+  const last_year_data = {{ data['last_year_chart_data']['month'] | tojson }};
+
+  this_year_data.forEach(e => {
+    this_year_months.push(labels[parseInt(e) - 1])
+  });
+
+  const this_year_total_data = {{ data['this_year_chart_data']['final_total'] | tojson }};
+  const last_year_total_data = {{ data['last_year_chart_data']['final_total'] | tojson }};
+
+  console.log(last_year_total_data)
+
+  const chart_data = {
+    labels: this_year_months,
+    datasets: [
+        {
+            label: this_year,
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            tension: 0.2,
+            data: this_year_total_data,
+        },
+        {
+            label: last_year,
+            backgroundColor: 'rgb(51, 153, 255)',
+            borderColor: 'rgb(51, 153, 255)',
+            tension: 0.2,
+            data: last_year_total_data,
+        }
+    ]
+  };
+
+  const config = {
+    type: 'line',
+    data: chart_data,
+    options: {}
+  };
+
+
+  const annualChart = new Chart(
+    document.getElementById('annualChart'),
+    config
+  );
+</script>
 {% endblock %}

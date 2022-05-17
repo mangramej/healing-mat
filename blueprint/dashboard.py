@@ -1,7 +1,8 @@
 from flask import Blueprint, session, render_template, redirect, url_for
-from sqlalchemy import extract
+from sqlalchemy import extract, text
 from datetime import date, datetime
 
+from helper.db import db
 from helper.functions import is_authenticated
 from models import Staff, Transaction, Product
 
@@ -67,6 +68,8 @@ def dashboard():
     for item in prod_prev_month_data:
         prod_prev_month_total_earn += item[0] * item[1]
 
+
+
     data = {
         "staff_count": staff_count,
         "trans_month_count": trans_month_count,
@@ -74,7 +77,48 @@ def dashboard():
         "prod_month_total_earn": prod_month_total_earn,
         "prod_prev_month_total_earn": prod_prev_month_total_earn,
         "recent_trans_data": recent_trans_data,
-        "datetime": datetime
+        "datetime": datetime,
+        "this_year_chart_data": {
+            "year":             str(year_now),
+            "month":            [],
+            "order_placed":     [],
+            "quantity_sold":    [],
+            "total_discount":   [],
+            "final_total":      [],
+        },
+        "last_year_chart_data": {
+            "year":             str(year_now-1),
+            "month":            [],
+            "order_placed":     [],
+            "quantity_sold":    [],
+            "total_discount":   [],
+            "final_total":      [],
+        }
     }
+
+    this_year_sql = text("SELECT strftime('%m', t.trans_date) AS 'MONTH_YEAR', COUNT(t.cust_id) AS 'ORDER_PLACED', SUM(t.trans_quantity) AS 'QUANTITY_SOLD', SUM(t.trans_quantity * t.trans_discount) AS 'TOTAL_DISCOUNT', SUM(t.trans_quantity * p.prod_retail_price) - SUM(t.trans_quantity * t.trans_discount) AS 'FINAL_TOTAL' FROM 'transaction' AS t INNER JOIN product AS p ON p.prod_id = t.prod_id WHERE strftime('%Y', trans_date) = '" + str(year_now) + "' GROUP BY strftime('%m', trans_date)")
+
+    last_year_sql = text("SELECT strftime('%m', t.trans_date) AS 'MONTH_YEAR', COUNT(t.cust_id) AS 'ORDER_PLACED', SUM(t.trans_quantity) AS 'QUANTITY_SOLD', SUM(t.trans_quantity * t.trans_discount) AS 'TOTAL_DISCOUNT', SUM(t.trans_quantity * p.prod_retail_price) - SUM(t.trans_quantity * t.trans_discount) AS 'FINAL_TOTAL' FROM 'transaction' AS t INNER JOIN product AS p ON p.prod_id = t.prod_id WHERE strftime('%Y', trans_date) = '" + str(year_now - 1) + "' GROUP BY strftime('%m', trans_date)")
+
+
+    this_year_chart_result = db.engine.execute(this_year_sql)
+
+    for row in this_year_chart_result:
+        data["this_year_chart_data"]["month"].append(row[0])
+        data["this_year_chart_data"]["order_placed"].append(row[1])
+        data["this_year_chart_data"]["quantity_sold"].append(row[2])
+        data["this_year_chart_data"]["total_discount"].append(row[3])
+        data["this_year_chart_data"]["final_total"].append(row[4])
+
+
+    last_year_chart_result = db.engine.execute(last_year_sql)
+
+    for row in last_year_chart_result:
+        data["last_year_chart_data"]["month"].append(row[0])
+        data["last_year_chart_data"]["order_placed"].append(row[1])
+        data["last_year_chart_data"]["quantity_sold"].append(row[2])
+        data["last_year_chart_data"]["total_discount"].append(row[3])
+        data["last_year_chart_data"]["final_total"].append(row[4])
+    
 
     return render_template('auth/dashboard_page.html', data=data)
